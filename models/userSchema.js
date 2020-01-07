@@ -4,11 +4,13 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
 	name: String,
 	email: String,
-	phone: Number
-	/*conversations: [Schema.Types.ObjectId],
+	phone: Number,
+	conversations: [Schema.Types.ObjectId],
 	groups: [Schema.Types.ObjectId],
 	favourites: [Schema.Types.ObjectId],
-	images: String*/
+	images: String,
+	online: Boolean,
+	isWriting: Boolean
 });
 
 module.exports = user = mongoose.model("user", userSchema);
