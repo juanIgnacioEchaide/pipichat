@@ -25,6 +25,7 @@ module.exports = gql`
     }
     type Query{
         getUsers: [User]
+        getUser(userId: ID!): User
         getChats: [Chat]
         getChat(chatId: ID!): Chat
     }
