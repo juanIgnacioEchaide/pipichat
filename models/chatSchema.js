@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+/*const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const userSchema = require("userSchema");
+const userSchema = require("./userSchema");
 
 const reactionSchema = new Schema({
     user: [userSchema],
@@ -13,13 +13,11 @@ const messageSchema = new Schema({
     text: String,
     images: String,
     reactions: [reactionSchema]
-
 })
 
 const chatSchema = new Schema({
     users: [userSchema],
     messages: [messageSchema]
-
 })
 
-module.exports = chat = mongoose.model("chat", chatSchema);
+module.exports = chat = mongoose.model("chat", chatSchema);*/
