@@ -1,6 +1,12 @@
 const { gql } = require('apollo-server')
 
 module.exports = gql`
+    type Chat{
+        id: ID
+        body: String
+        createdAt: String
+        name: String
+    }
     type User{
         id: ID
         token: String
@@ -19,9 +25,13 @@ module.exports = gql`
     }
     type Query{
         getUsers: [User]
+        getChats: [Chat]
+        getChat(chatId: ID!): Chat
     }
     type Mutation{
         register(registerInput: RegisterInput): User!
         login(name: String!, password: String!): User!
+        createChat(body: String!): Chat!
+        deleteChat(chatId: ID!): String!
     }
 `
