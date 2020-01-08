@@ -30,7 +30,7 @@
 }
 
 .chatContentContainer {
-  background-color: #55DDE0;
+  background-color: #F2F3DE;
   overflow-y      : scroll;
   max-height      : 500px;
 }

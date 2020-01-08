@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import PropTypes from 'prop-types';
 import './LoginFormStyle.css';
 import Logo from '../../assets/pipiLogo.png';
+import ChatScreen from '../ChatScreen/ChatScreen.jsx';
   
 const LoginForm = props => {
  
@@ -46,8 +47,8 @@ const LoginForm = props => {
                                 onChange={event=>{setEnteredPassword(event.target.value)}} />
                         </Form.Group>
                         
-                        <Link to={'/chat'}>
-                        <div style={{display:'flex', alignItems:'center'}}><p>Log In</p></div>
+                        <Link to={"/chat"} > 
+                        <div className="btn" style={{display:'flex', alignItems:'center'}}><p>Log In</p></div>
                         </Link>
                         
                     </>}
