@@ -22,10 +22,11 @@ const ChatList = props => {
         setChecked(!checked);
     }
 
+    console.log('chatList',props.chat);
 
     return (
         <div>
-            <Button>Add</Button>
+            {props.chat}
             {chats.map(item =>
                 <div id='chatTab' className='rounded text-white'>
                     <img id='tabUserPic' src={userImg} className="mr-2" />

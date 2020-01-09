@@ -10,9 +10,13 @@ const ChatScreen = props => {
 
 
 
-  const[chat,setChat]=useState();
+  const[chat,setChat]=useState('jojo');
 
-
+/*   
+  const switchChatHandler=()=>{
+    setChat(currentChatList=>[...currentChatList,...chat,{id:Math.random().toString(),name:setEnteredSearch,lastMsg:'hh:mm:ss'}]);
+  } 
+ */
 
 
   return (
@@ -26,7 +30,7 @@ const ChatScreen = props => {
           </div>
           <div className="row chatListContainerRow">
             <div className="col-12 chatListContainer">
-              <SideBar props={setChat}/>
+              <SideBar chat={chat} setChat={setChat}/>
             </div>
           </div>
         </div>

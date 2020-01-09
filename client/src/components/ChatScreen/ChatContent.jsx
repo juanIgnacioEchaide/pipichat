@@ -5,11 +5,11 @@ import PropTypes from 'prop-types';
 import ChatInput from './ChatInput';
 
 
-
 const ChatContent = props => {
 
   return (
      <ChatInput/>
+ 
   );
 };
 

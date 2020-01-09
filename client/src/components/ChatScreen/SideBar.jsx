@@ -7,15 +7,16 @@ import AddNewChat from './AddNewChat';
 import {MdDoneAll}  from 'react-icons/md';  */
 
 const SideBar = props => {
-    console.log('SideBar',props);
-  
+
 
     return (
+
+      
         <div id='SideBarContainer'> 
     
             <div>
-                <AddNewChat props={props.setChat}/>
-                <ChatList/>
+                <AddNewChat setChat={props.setChat}/>
+                <ChatList chat={props.chat}/>
 
             </div>
         </div>
