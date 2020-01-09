@@ -14,7 +14,7 @@ const SideBar = props => {
 
     const addChatHandler=()=>{
       props.setChat(currentChatList=> 
-        [...currentChatList,...props.chat,{id:Math.random().toString(),name:enteredSearch,lastMsg:'hh:mm:ss'}]);
+        [...currentChatList,{id:Math.random().toString(),name:enteredSearch,lastMsg:'hh:mm:ss'}]);
     } 
     
     return (
