@@ -11,6 +11,7 @@ const ChatInput = props => {
     const sendMessageHandler = () => {
         setMessage(currentMessages => [...currentMessages, { id: Math.random().toString(), user: 'You', content: enteredMessage, reaction: '' }])
         console.log(message);
+        setEnteredMessage('');
     }
 
     const [checked, setChecked] = useState(false);

@@ -8,16 +8,8 @@ import ChatInput from './ChatInput';
 
 const ChatContent = props => {
 
-
-
-
-
   return (
-    <div>
-              <ChatInput/>
- 
-
-    </div>
+     <ChatInput/>
   );
 };
 

@@ -3,6 +3,7 @@ import './SideBar.css'
 import { useState } from 'react';
 import userImg from '../../assets/user_logo.png';
 import Button from 'react-bootstrap/Button';
+import AddNewChat from './AddNewChat.jsx';
 /* import {MdDone} from 'react-icons/md'; 
 import {MdDoneAll}  from 'react-icons/md';  */
 
@@ -23,7 +24,7 @@ const SideBar = props => {
 
     return (
         <div id='SideBarContainer'> 
-
+                <AddNewChat/>
             <div>
                 {chats.map(item =>
                     <div id='chatTab' className='rounded text-white'>
