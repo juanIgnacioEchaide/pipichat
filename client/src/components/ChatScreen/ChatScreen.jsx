@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './ChatScreen.css';
 import UserCard from './UserCard.jsx';
 import SideBar from './SideBar';
@@ -7,6 +7,14 @@ import ChatContent from './ChatContent';
 
 
 const ChatScreen = props => {
+
+
+
+  const[chat,setChat]=useState();
+
+
+
+
   return (
     <div className="container-fluid h-100">
       <div className="row h-100">
@@ -18,7 +26,7 @@ const ChatScreen = props => {
           </div>
           <div className="row chatListContainerRow">
             <div className="col-12 chatListContainer">
-              <SideBar />
+              <SideBar props={setChat}/>
             </div>
           </div>
         </div>
@@ -30,7 +38,7 @@ const ChatScreen = props => {
           </div>
           <div className="row chatContentContainerRow">
             <div className="col-12 chatContentContainer">
-              <ChatContent />
+              <ChatContent props={chat} />
             </div>
           </div>
         </div>
