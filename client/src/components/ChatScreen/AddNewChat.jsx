@@ -15,9 +15,9 @@ const AddNewChat = props => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  console.log('AddeNewChat', props.setChat)
+  console.log('ehh funcion',props.addChatHandler);
 
-  const [enteredSearch, setEnteredSearch] = useState();
+
 
   return (
 
@@ -31,16 +31,17 @@ const AddNewChat = props => {
       <Modal show={show} onHide={handleClose}>
 
         <Modal.Body>Search: </Modal.Body>
-        <input onChange={event => { setEnteredSearch(event.target.value) }} ></input>
+        <input onChange={event => {props.setEnteredSearch(event.target.value )}} ></input> 
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             x
           </Button>
-          {/*       <Button variant="secondary" onClick={switchChatHandler}>
+             <Button variant="secondary" onClick={()=>props.addChatHandler([{id:'123123',name:props.enteredSearch,lastMsg:'121hs'}])} >
             Add
-          </Button> */}
+          </Button> 
         </Modal.Footer>
       </Modal>
+
     </>
   );
 };

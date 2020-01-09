@@ -8,14 +8,22 @@ import {MdDoneAll}  from 'react-icons/md';  */
 
 const SideBar = props => {
 
+    console.log('sideBar',props.chat)
 
+    const [enteredSearch, setEnteredSearch] = useState('busco');
+
+    const addChatHandler=()=>{
+      props.setChat(currentChatList=> 
+        [...currentChatList,...props.chat,{id:Math.random().toString(),name:enteredSearch,lastMsg:'hh:mm:ss'}]);
+    } 
+    
     return (
 
-      
+
         <div id='SideBarContainer'> 
     
             <div>
-                <AddNewChat setChat={props.setChat}/>
+                <AddNewChat enteredSearch={enteredSearch} addChatHandler={addChatHandler} setEnteredSearch={setEnteredSearch} setChat={props.setChat}/>
                 <ChatList chat={props.chat}/>
 
             </div>

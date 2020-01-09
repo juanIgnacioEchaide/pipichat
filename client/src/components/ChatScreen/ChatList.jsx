@@ -5,8 +5,6 @@ import PropTypes from 'prop-types';
 
 const ChatList = props => {
 
-    const [chatList,setChatList]=useState([]);
-
 
 
     const [chats = [
@@ -26,8 +24,7 @@ const ChatList = props => {
 
     return (
         <div>
-            {props.chat}
-            {chats.map(item =>
+            {props.chat.map(item =>
                 <div id='chatTab' className='rounded text-white'>
                     <img id='tabUserPic' src={userImg} className="mr-2" />
                     <h6 id='userName'>{item.name}</h6>
