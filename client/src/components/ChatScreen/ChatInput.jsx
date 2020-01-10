@@ -48,17 +48,12 @@ const ChatInput = props => {
                             <div className="row mw-100  ml-0">
                                 <p className="col-10 mb-0 pl-2">{timeStamp}</p>
                                 <p className="col-2 mb-0" >lei </p>
-                            </div>}
-
-                       
+                            </div>}                   
                     </div>
-
                         <Button onClick={checkedHandler}>Notif</Button>
                 </div>
-
-
             )}
-            <input onChange={event => setEnteredMessage(event.target.value)}></input><Button onClick={sendMessageHandler}>Enviar</Button>
+            <input className="rounded"onChange={event => setEnteredMessage(event.target.value)}></input><Button onClick={sendMessageHandler}>Enviar</Button>
 
         </div>
     );

@@ -19,8 +19,7 @@ const SideBar = props => {
     
     return (
 
-
-        <div id='SideBarContainer'> 
+    <div id='SideBarContainer'> 
     
             <div>
                 <AddNewChat enteredSearch={enteredSearch} addChatHandler={addChatHandler} setEnteredSearch={setEnteredSearch} setChat={props.setChat}/>

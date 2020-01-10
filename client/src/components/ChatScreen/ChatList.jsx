@@ -5,8 +5,6 @@ import PropTypes from 'prop-types';
 
 const ChatList = props => {
 
-    
-
     const [checked, setChecked] = useState(false)
     const checkedHandler = () => {
         setChecked(!checked);

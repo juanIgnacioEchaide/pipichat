@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
-import Add from '../../assets/AddChat.png';
+import Add from '../../assets/AddChatButton.png';
 import './AddNewChatStyle.css';
 import PropTypes from 'prop-types';
 
@@ -12,10 +12,7 @@ const AddNewChat = props => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-
   console.log('ehh funcion', props.addChatHandler);
-
-
 
   return (
 
@@ -44,7 +41,6 @@ const AddNewChat = props => {
           <Button   onClick={()=>handleClose()}>Cancel</Button>
         </Modal.Footer>
       </Modal>
-
     </>
   );
 };

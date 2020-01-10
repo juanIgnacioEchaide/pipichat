@@ -13,10 +13,17 @@ const LoginForm = props => {
     const [enteredPassword, setEnteredPassword] = useState('');
     const [withEmail, setEmail] = useState(false)
 
+    const [validEmail, setValidEmail]=useState(false);
+
     console.log(enteredEmail, enteredPassword)
 
     const emailHandler = () => {
-        setEmail(!withEmail);
+        if(enteredEmail==''){
+            setValidEmail(!validEmail);
+        }else{
+            setEmail(!withEmail)
+            setValidEmail(!validEmail);}
+        
     }
 
     const submitHandler = event => {
@@ -45,6 +52,8 @@ const LoginForm = props => {
                             Please keep in mind this security code will expire in 5 minutes
                         </div>
                     </Form.Group>
+
+                    {validEmail===true? <div className="rounded"><p>Please Enter a valid Email</p></div>:<></>}
 
                     {withEmail === false ? <>
                         <div className="btn" onClick={() => emailHandler()}><p>Send Code</p></div>
