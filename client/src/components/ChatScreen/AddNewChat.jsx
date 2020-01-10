@@ -21,29 +21,27 @@ const AddNewChat = props => {
 
     <>
       <div onClick={handleShow}>
-        <div style={{ marginTop: 10, display: 'flex', alignItems: 'center' }}>
+        <div style={{ marginTop: 10, display: 'flex', marginLeft:80 }}>
           <img style={{ height: '7vh' }} src={Add} />
         </div>
       </div>
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal  show={show} onHide={handleClose}>
 
-        <Modal.Body>Search: </Modal.Body>
+        <Modal.Body className="rounded text-white" style={{
+          backgroundColor:'#F26419'
+        }}>Search </Modal.Body> 
         <input onChange={event => { props.setEnteredSearch(event.target.value) }} ></input>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            x
-          </Button>
+        
           <Button variant="secondary"
             onClick={() => {
               handleClose();
               props.addChatHandler([{ id: Math.random().toString(), name: props.enteredSearch, lastMsg: '121hs' }]);
-            }}
-/* 
-            onKeyPress={} */
-          >
-           
+            }}>
+           Add
           </Button>
+          <Button   onClick={()=>handleClose()}>Cancel</Button>
         </Modal.Footer>
       </Modal>
 
