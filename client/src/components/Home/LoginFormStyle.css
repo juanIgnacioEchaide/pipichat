@@ -10,26 +10,29 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align:center;
 }
 
 .LogoTitle{
     font-family: 'Michroma', sans-serif;
     color: white;
     font-size: 40px;
+    text-shadow: 0 1px 0 rgba(179, 177, 177, 0.7);
 }
 
 .btn{
     background-color: #ddd;
     border: none;
     color: black;
-    padding: 3px 30px;
-    text-align: center;
+    padding: 3px 35px;
+    padding-top:3%;
+ /*    text-align: center; */
     font-size: 16px;
     margin: 4px 2px;
     transition: 0.3s;
 }
 
 .btn:hover {
-    background-color: #3e8e41;
+    background-color: #FFA942;
     color: white;
   }

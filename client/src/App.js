@@ -7,14 +7,14 @@ import ChatScreen from './components/ChatScreen/ChatScreen';
  
 function App() {
   return (
-    <div className="h-100 app"> 
+    <div className="app"> 
     <Router>
       <Switch>
         <Route path="/index" component={Home}></Route>
         <Route path="/chat" component={ChatScreen}></Route>
 
       </Switch>
-    <Redirect exact from="/" to="/index" />
+     <Redirect exact from="/" to="/index" />
     </Router>
     </div>
   );

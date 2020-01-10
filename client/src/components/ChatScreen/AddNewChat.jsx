@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
-import Add from '../../assets/AddUser.png';
-import './AddNewChatStyle.css'
+import Add from '../../assets/AddChat.png';
+import './AddNewChatStyle.css';
 import PropTypes from 'prop-types';
 
 
-{/* <div style={{marginTop:10,display:'flex',alignItems:'center'}}>
-            <img style={{height:'10vh'}} src={Add}/>
-</div>*/}
 
 const AddNewChat = props => {
 
@@ -15,7 +12,8 @@ const AddNewChat = props => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  console.log('ehh funcion',props.addChatHandler);
+
+  console.log('ehh funcion', props.addChatHandler);
 
 
 
@@ -24,21 +22,28 @@ const AddNewChat = props => {
     <>
       <div onClick={handleShow}>
         <div style={{ marginTop: 10, display: 'flex', alignItems: 'center' }}>
-          <img style={{ height: '10vh' }} src={Add} />
+          <img style={{ height: '7vh' }} src={Add} />
         </div>
       </div>
 
       <Modal show={show} onHide={handleClose}>
 
         <Modal.Body>Search: </Modal.Body>
-        <input onChange={event => {props.setEnteredSearch(event.target.value )}} ></input> 
+        <input onChange={event => { props.setEnteredSearch(event.target.value) }} ></input>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             x
           </Button>
-             <Button variant="secondary" onClick={()=>props.addChatHandler([{id:'123123',name:props.enteredSearch,lastMsg:'121hs'}])} >
-            Add
-          </Button> 
+          <Button variant="secondary"
+            onClick={() => {
+              handleClose();
+              props.addChatHandler([{ id: Math.random().toString(), name: props.enteredSearch, lastMsg: '121hs' }]);
+            }}
+/* 
+            onKeyPress={} */
+          >
+           
+          </Button>
         </Modal.Footer>
       </Modal>
 

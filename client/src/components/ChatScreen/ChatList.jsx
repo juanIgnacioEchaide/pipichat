@@ -5,16 +5,6 @@ import PropTypes from 'prop-types';
 
 const ChatList = props => {
 
-
-
-    const [chats = [
-        { id: '0', name: 'Diego Jujuy', lastMsg: 'hoy 10.45' },
-        { id: '1', name: 'Maty Jujuy', lastMsg: 'ayer 2.45' },
-        { id: '2', name: 'LoPresti', lastMsg: 'hoy 16.28' },
-        { id: '3', name: 'PipiMisterioso', lastMsg: 'mier 20.55' },
-        { id: '4', name: 'Jijiji', lastMsg: 'hoy 12.00' }
-    ]] = useState();
-
     const [checked, setChecked] = useState(false)
     const checkedHandler = () => {
         setChecked(!checked);
