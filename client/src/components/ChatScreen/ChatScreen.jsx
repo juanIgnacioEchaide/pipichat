@@ -1,17 +1,15 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import './ChatScreen.css';
 import UserCard from './UserCard.jsx';
 import SideBar from './SideBar';
 import ChatHeader from './ChatHeader';
 import ChatContent from './ChatContent';
-
-
+  
 const ChatScreen = props => {
-
-
 
   const[chat,setChat]=useState([]);
 
+ /*  setChat(data); */
   return (
     <div className="container-fluid h-100">
       <div className="row h-100">
@@ -49,3 +47,13 @@ ChatScreen.propTypes = {
 };
 
 export default ChatScreen;
+
+/* mutation createUser($email: String!, $password: String!, $username: String!) {
+  createUser (username: $name, password: $password, email: $email)
+  user {
+    id
+    username
+    email
+    password
+  }
+} */

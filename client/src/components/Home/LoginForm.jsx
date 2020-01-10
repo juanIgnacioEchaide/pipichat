@@ -30,6 +30,7 @@ const LoginForm = props => {
         event.preventDefault();
         /*  */
     }
+
     return (
 
         <div className="pantalla">
@@ -64,7 +65,10 @@ const LoginForm = props => {
                         </Form.Group>
 
                             <Link to={"/chat"} style={{ textDecoration: 'none' }} >
-                                <div className="btn" style={{ display: 'flex', textAlign: 'center', width: '30%' }}><p>Log In</p></div>
+                                <div 
+                                className="btn" 
+                                style={{ display: 'flex', textAlign: 'center', width: '30%' }}
+                                ><p>Log In</p></div>
                             </Link>
 
                         </>}

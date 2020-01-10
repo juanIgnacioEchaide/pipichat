@@ -4,16 +4,20 @@ import PropTypes from 'prop-types';
 
 const ChatInput = props => {
 
-    const hour =new Date().getHours().toString()
+    const hour = new Date().getHours().toString()
     const minute = new Date().getMinutes().toString()
     const seconds = new Date().getSeconds().toString()
-    const timeStamp = hour+':'+minute+':'+seconds+' hs'
-  
+    const timeStamp = hour + ':' + minute + ':' + seconds + ' hs'
+
 
     console.log(timeStamp);
 
     const [enteredMessage, setEnteredMessage] = useState('');
     const [message, setMessage] = useState([]);
+
+    
+
+
     console.log(enteredMessage)
 
     const sendMessageHandler = () => {
@@ -31,13 +35,13 @@ const ChatInput = props => {
 
 
     return (
-        <div>
+        <div style={{marginBottom:'260px'}}>
             {message.map(msg =>
 
-                  <div id="messageTab" className='column bg-dark text-white p-2 m-1 rounded w-50'>
+                <div id="messageTab" className='column bg-dark text-white p-2 m-1 rounded w-50 shadow'>
                     <p id="userName" className="ml-3">{msg.user}</p>
                     <p>{msg.content}</p>
-        
+
                     <div id="notification">
 
                         {checked == false ?
@@ -48,12 +52,27 @@ const ChatInput = props => {
                             <div className="row mw-100  ml-0">
                                 <p className="col-10 mb-0 pl-2">{timeStamp}</p>
                                 <p className="col-2 mb-0" >lei </p>
-                            </div>}                   
+                            </div>}
+
+
                     </div>
-                        <Button onClick={checkedHandler}>Notif</Button>
+
+                    <Button onClick={checkedHandler}>Notif</Button>
                 </div>
+
+
             )}
-            <input className="rounded"onChange={event => setEnteredMessage(event.target.value)}></input><Button onClick={sendMessageHandler}>Enviar</Button>
+            <div style={{
+            position: 'fixed',
+            bottom: 0,
+            backgroundColor: '#F2F3DE',
+            marginLeft:'4px'}}>
+                <footer>
+                    <input size="59"className="rounded" onChange={event => setEnteredMessage(event.target.value)}>
+                    </input>
+                    <Button onClick={sendMessageHandler}>Enviar</Button>
+                </footer>
+            </div>
 
         </div>
     );

@@ -1,6 +1,6 @@
 import React from 'react';
 import './SideBar.css'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ChatList from './ChatList';
 import AddNewChat from './AddNewChat';
 /* import {MdDone} from 'react-icons/md'; 
@@ -16,15 +16,23 @@ const SideBar = props => {
       props.setChat(currentChatList=> 
         [...currentChatList,{id:Math.random().toString(),name:enteredSearch,lastMsg:'hh:mm:ss'}]);
     } 
-    
+
+    useEffect(()=>{
+        /* PReguntar a Rodri */
+ 
+    });
+
     return (
 
     <div id='SideBarContainer'> 
     
             <div>
-                <AddNewChat enteredSearch={enteredSearch} addChatHandler={addChatHandler} setEnteredSearch={setEnteredSearch} setChat={props.setChat}/>
+                <AddNewChat 
+                enteredSearch={enteredSearch} 
+                addChatHandler={addChatHandler} 
+                setEnteredSearch={setEnteredSearch} 
+                setChat={props.setChat}/>
                 <ChatList chat={props.chat}/>
-
             </div>
         </div>
     );

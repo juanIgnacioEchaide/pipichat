@@ -16,8 +16,7 @@ const Home = props => {
     }
 
     return (
-        <div className="Home">
-            
+        <div className="Home">          
             <LoginForm />
             <Footer />
         </div>
