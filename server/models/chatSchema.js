@@ -1,16 +1,16 @@
 const { model, Schema } = require('mongoose');
-
+ 
+const messageSchema = new Schema({
+  author: String,
+  date: Date,
+  text: String,
+})
+ 
 const chatSchema = new Schema({
-  body: String,
-  username: String,
+  members: [String],
+  name: String,
   createdAt: String,
-  comments: [
-    {
-      body: String,
-      username: String,
-      createdAt: String
-    }
-  ],
+  messages: [messageSchema],
   likes: [
     {
       username: String,

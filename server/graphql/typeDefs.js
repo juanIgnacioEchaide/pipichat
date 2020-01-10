@@ -5,7 +5,14 @@ module.exports = gql`
         id: ID
         body: String
         createdAt: String
+        messages: [Message]
         name: String
+    }
+    type Message{
+        _id: ID   
+        createdAt:String
+        author: String
+        text: String
     }
     type User{
         id: ID
@@ -15,6 +22,15 @@ module.exports = gql`
         password: String
         phone: Int
         createdAt: String
+    }
+    input createChatInput{
+        members: [String]
+        name:String
+    }
+    input createMessageInput{
+       author: String
+       text:String
+       chatID: String
     }
     input RegisterInput{
         name: String!
@@ -32,7 +48,8 @@ module.exports = gql`
     type Mutation{
         register(registerInput: RegisterInput): User!
         login(name: String!, password: String!): User!
-        createChat(body: String!): Chat!
+        createMessage(input:createMessageInput):Message!
+        createChat(input: createChatInput!): Chat!
         deleteChat(chatId: ID!): String!
     }
 `

@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import userImg from '../../assets/user_logo.png';
 import Button from 'react-bootstrap/Button';
 import PropTypes from 'prop-types';
+import {fromError} from 'apollo-link-error';
 import { useEffect } from 'react';
 import { ApolloProvider, useQuery } from "@apollo/react-hooks";
 import {gql} from "@apollo/client";
@@ -47,5 +48,6 @@ const ChatList = props => {
 ChatList.propTypes = {
 
 };
+
 
 export default ChatList;

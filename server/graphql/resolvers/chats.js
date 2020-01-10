@@ -2,6 +2,7 @@ const { AuthenticationError } = require('apollo-server')
 
 const Chat = require('../../models/chatSchema')
 const checkAuth = require('../../util/check-auth')
+var ObjectId = require('mongodb').ObjectId;
 
 module.exports = {
     Query: {
@@ -57,6 +58,23 @@ module.exports = {
             } catch (err) {
                 throw new Error(err);
             }
+        },
+        async createMessage(_,{input:{author,text,chatID}}){
+                const newMessage={
+                    date: new Date().toISOString(),
+                     author: author,
+                     text: text       
+                }
+                console.log(newMessage)
+
+             /*    pubsub.publish(MESSAGE_ADDED,{messageAdded:newMessage}); */
+                const chat = await Chat.updateOne(
+                    {_id:chatID},
+                    {$push:{messages:newMessage}}
+                )
+                console.log(chat)
+
+                return newMessage;
         }
     }
 };

@@ -1,7 +1,22 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import PropTypes from 'prop-types';
+import {gql} from "@apollo/client";
+import { useMutation } from '@apollo/react-hooks';
 
+const CREATE_MESSAGE = gql`
+  mutation CreateMessage($input: createMessageInput) {
+    createMessage(input: $input) {
+        author,
+      text
+     
+    }
+  }
+`;
+
+var author = "andy";
+var text = "hope is a good thing";
+var chatID = "5e18d107c7eb83098cba5893";
 const ChatInput = props => {
 
     const hour = new Date().getHours().toString()
@@ -15,10 +30,17 @@ const ChatInput = props => {
     const [enteredMessage, setEnteredMessage] = useState('');
     const [message, setMessage] = useState([]);
 
+    const [createMessage]=useMutation(CREATE_MESSAGE,{
+        variables:{
+            input: {
+                author,
+                text:enteredMessage,
+                chatID
+            }
+        },
+        errorPolicy: "all"
+    })
     
-
-
-    console.log(enteredMessage)
 
     const sendMessageHandler = () => {
         setMessage(currentMessages => [...currentMessages, { id: Math.random().toString(), user: 'You', content: enteredMessage, reaction: '' }])
@@ -70,7 +92,7 @@ const ChatInput = props => {
                 <footer>
                     <input size="59"className="rounded" onChange={event => setEnteredMessage(event.target.value)}>
                     </input>
-                    <Button onClick={sendMessageHandler}>Enviar</Button>
+                    <Button onClick={()=>createMessage()}>Enviar</Button>
                 </footer>
             </div>
 
@@ -83,3 +105,4 @@ ChatInput.propTypes = {
 };
 
 export default ChatInput;
+
