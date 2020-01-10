@@ -34,13 +34,13 @@ const LoginForm = props => {
 
                     <Form.Group controlId="formBasicEmail">
                         <div className="rounded text-white w-50"
-                            style={{ textAlign: 'justify' }}>
+                            style={{ textAlign: 'justify', marginBottom:10}}>
                                 Send a Security Code to your Email and start chating
                         </div>
                         <Form.Control
                          type="email" placeholder="Enter email" value={enteredEmail}
                             onChange={event => { setEnteredEmail(event.target.value) }} />
-                        <div style={{ textAlign: 'justify' }}
+                        <div style={{ textAlign: 'justify', marginTop:10}}
                             className="rounded text-white w-50">
                             Please keep in mind this security code will expire in 5 minutes
                         </div>
