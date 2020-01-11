@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import PropTypes from 'prop-types';
-import {gql} from "@apollo/client";
+import { gql } from "@apollo/client";
 import { useMutation } from '@apollo/react-hooks';
+
 
 const CREATE_MESSAGE = gql`
   mutation CreateMessage($input: createMessageInput) {
@@ -28,19 +29,19 @@ const ChatInput = props => {
     console.log(timeStamp);
 
     const [enteredMessage, setEnteredMessage] = useState('');
-    const [message, setMessage] = useState([]);
+    const [message, setMessage] = useState(['']);
 
-    const [createMessage]=useMutation(CREATE_MESSAGE,{
-        variables:{
+    const [createMessage] = useMutation(CREATE_MESSAGE, {
+        variables: {
             input: {
                 author,
-                text:enteredMessage,
+                text: enteredMessage,
                 chatID
             }
         },
         errorPolicy: "all"
     })
-    
+
 
     const sendMessageHandler = () => {
         setMessage(currentMessages => [...currentMessages, { id: Math.random().toString(), user: 'You', content: enteredMessage, reaction: '' }])
@@ -57,7 +58,7 @@ const ChatInput = props => {
 
 
     return (
-        <div style={{marginBottom:'260px'}}>
+        <div style={{ marginBottom: '260px' }}>
             {message.map(msg =>
 
                 <div id="messageTab" className='column bg-dark text-white p-2 m-1 rounded w-50 shadow'>
@@ -73,10 +74,8 @@ const ChatInput = props => {
                             </div> :
                             <div className="row mw-100  ml-0">
                                 <p className="col-10 mb-0 pl-2">{timeStamp}</p>
-                                <p className="col-2 mb-0" >lei </p>
+                                <p className="col-2 mb-0" >lei</p>
                             </div>}
-
-
                     </div>
 
                     <Button onClick={checkedHandler}>Notif</Button>
@@ -85,14 +84,15 @@ const ChatInput = props => {
 
             )}
             <div style={{
-            position: 'fixed',
-            bottom: 0,
-            backgroundColor: '#F2F3DE',
-            marginLeft:'4px'}}>
+                position: 'fixed',
+                bottom: 0,
+                backgroundColor: '#F2F3DE',
+                marginLeft: '4px'
+            }}>
                 <footer>
-                    <input size="59"className="rounded" onChange={event => setEnteredMessage(event.target.value)}>
+                    <input size="59" className="rounded" onChange={event => setEnteredMessage(event.target.value)}>
                     </input>
-                    <Button onClick={()=>createMessage()}>Enviar</Button>
+                    <Button onClick={() => createMessage()}>Enviar</Button>
                 </footer>
             </div>
 
