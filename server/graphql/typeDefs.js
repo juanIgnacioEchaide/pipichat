@@ -9,7 +9,7 @@ module.exports = gql`
         name: String
     }
     type Message{
-        _id: ID   
+        id: ID   
         createdAt:String
         author: String
         text: String

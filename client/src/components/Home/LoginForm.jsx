@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import './LoginFormStyle.css';
 import Logo from '../../assets/pipiLogo.png';
 import ChatScreen from '../ChatScreen/ChatScreen.jsx';
+import InsertCode from '../../components/Home/InsertCode';
 
 const LoginForm = props => {
 
@@ -64,12 +65,14 @@ const LoginForm = props => {
                                 onChange={event => { setEnteredPassword(event.target.value) }} />
                         </Form.Group>
 
+                             <InsertCode  onChange={event => { setEnteredPassword(event.target.value) }}/> 
+
                             <Link to={"/chat"} style={{ textDecoration: 'none' }} >
                                 <div 
                                 className="btn" 
                                 style={{ display: 'flex', textAlign: 'center', width: '30%' }}
                                 ><p>Log In</p></div>
-                            </Link>
+                            </Link> 
 
                         </>}
                 </Form>

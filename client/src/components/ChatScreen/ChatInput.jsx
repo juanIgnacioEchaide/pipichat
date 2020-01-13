@@ -2,23 +2,40 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import PropTypes from 'prop-types';
 import { gql } from "@apollo/client";
-import { useMutation } from '@apollo/react-hooks';
+import { ApolloProvider, useQuery,useMutation } from '@apollo/react-hooks';
 
+/* postea mensajes */
 
 const CREATE_MESSAGE = gql`
   mutation CreateMessage($input: createMessageInput) {
     createMessage(input: $input) {
         author,
-      text
+        text
      
     }
   }
 `;
 
-var author = "andy";
-var text = "hope is a good thing";
-var chatID = "5e18d107c7eb83098cba5893";
+const GET_CHATS = gql`{ 
+    getChats{
+        messages{
+            id
+            author
+            text
+        }
+
+}}
+`
+
+/* trae los mensajes */
+
+
 const ChatInput = props => {
+
+    const{loading,error,data}=useQuery(GET_CHATS)
+
+    console.log('todo los chats',data); 
+    console.log('los mensajes',data);
 
     const hour = new Date().getHours().toString()
     const minute = new Date().getMinutes().toString()
@@ -34,9 +51,9 @@ const ChatInput = props => {
     const [createMessage] = useMutation(CREATE_MESSAGE, {
         variables: {
             input: {
-                author,
+                author:'me',
                 text: enteredMessage,
-                chatID
+                chatID:'5e18d107c7eb83098cba5893'
             }
         },
         errorPolicy: "all"
@@ -59,11 +76,19 @@ const ChatInput = props => {
 
     return (
         <div style={{ marginBottom: '260px' }}>
-            {message.map(msg =>
+
+{/*    {data==null? <p> no anda</p>:data.getChats[1].messages.map(item=><p>{item.text}</p>)}  */}
+
+
+
+
+     {data==null? <p>no anda</p> :data.getChats[1].messages.map(msg =>
+
+
 
                 <div id="messageTab" className='column bg-dark text-white p-2 m-1 rounded w-50 shadow'>
-                    <p id="userName" className="ml-3">{msg.user}</p>
-                    <p>{msg.content}</p>
+                    <p id="userName" className="ml-3">{msg.author}</p>
+                    <p>{msg.text}</p>
 
                     <div id="notification">
 
@@ -82,7 +107,7 @@ const ChatInput = props => {
                 </div>
 
 
-            )}
+            )} 
             <div style={{
                 position: 'fixed',
                 bottom: 0,
@@ -95,7 +120,6 @@ const ChatInput = props => {
                     <Button onClick={() => createMessage()}>Enviar</Button>
                 </footer>
             </div>
-
         </div>
     );
 };
